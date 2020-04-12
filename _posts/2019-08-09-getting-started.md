@@ -8,9 +8,9 @@ tags: [getting started]
 
 ## Preparation
 
-Follow the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installtion of basic environment (Ruby, RubyGem, Bundler and Jekyll). In order to use the script tools to save time, we also need to install [Python](https://www.python.org/downloads/)(version 3.5 or abover) and [ruamel.yaml](https://pypi.org/project/ruamel.yaml/).
+Follow the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installtion of basic environment (`Ruby`, `RubyGem`, `Bundler`). 
 
-In addition, if your machine is running Debian or macOS, make sure you have the [GNU coreutils](https://www.gnu.org/software/coreutils/) installed. Otherwise, get it by:
+In order to use the script tools to save time, if your machine is running Debian or macOS, make sure you have the [GNU coreutils](https://www.gnu.org/software/coreutils/) installed. Otherwise, install it by:
 
 * Debian
 
@@ -74,7 +74,7 @@ As mentioned above, some files or directories should be removed from your repo:
 
 ## Configuration
 
-Basically, go to `_config.yml` and configure the variables as needed. Some of them are typical options:
+Generally, go to `_config.yml` and configure the variables as needed. Some of them are typical options:
 
 * `url`
     
@@ -101,7 +101,7 @@ Basically, go to `_config.yml` and configure the variables as needed. Some of th
 
 ##  Run Locally
 
-You may want to preview the site before publishing, so just run the script tool:
+You may want to preview the site content before publishing, so just run the script tool:
 
 ```terminal
 $ bash tools/run.sh
