@@ -8,8 +8,6 @@ tags: [azure, policy]
 toc: false
 ---
 
-# Introduction to Azure Policy 
-
 ### Goals 
 This article will help give you an overview of Azure Policy and how it can be utilized to help govern your Azure Environment.  It will be the first of a multi-part blog series covering some examples of how to leverage Azure Policy.   
 

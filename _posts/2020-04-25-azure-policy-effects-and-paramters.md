@@ -8,8 +8,6 @@ tags: [azure, policy]
 toc: false
 ---
 
-# Azure Policy Effects and Parameters
-
 ### Goals
 This is the second post in a series to help you become more familiar with Azure Policy.  If you haven't seen the first post, [Getting Started with Azure Policy](http://joefecht.com/posts/getting-started-with-azure-policy/), please take a look as it will help you familiarize yourself with the components of Azure Policy.  
 
