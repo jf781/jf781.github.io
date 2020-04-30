@@ -13,9 +13,8 @@ title: Joe Fecht                          # the main title
 tagline: Ramblings of a recovering Windows Admin  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar,
-  bootstrap Jekyll theme with responsive web design
-  and focuses on text presentation.
+  The ramblings of a recovering Windows Admin.
+  Discussing Azure, DevOps, and random tidbits I find interesting. 
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'https://jf781.github.io'
@@ -32,7 +31,7 @@ twitter:
 
 social:
   name: Joe Fecht                  # it will shows as the copyright owner in Footer
-  email: joe.fecht@gmail.com             # change to your email address
+  email: joe@joefecht.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/joe.fecht     # change to your twitter homepage
