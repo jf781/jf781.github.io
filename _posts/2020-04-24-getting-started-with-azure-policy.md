@@ -1,5 +1,6 @@
 ---
 title: Getting started with Azure Policy
+canonical_url: https://cloudskills.io/blog/azure-policy
 author: Joe Fecht
 date: 2020-04-24 00:00:00 -0600
 categories: [Azure]

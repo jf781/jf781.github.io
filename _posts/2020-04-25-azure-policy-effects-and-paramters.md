@@ -1,5 +1,6 @@
 ---
 title: Azure Policy Effects and Parameters
+canonical_url: https://cloudskills.io/blog/managing-azure-policy
 author: Joe Fecht
 date: 2020-04-25 00:00:00 -0600
 categories: [Azure]
