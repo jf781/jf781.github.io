@@ -1,5 +1,5 @@
 ---
-title: Why start blogging now?
+title: Why I started blogging?
 author: Joe Fecht
 date: 2020-04-30 00:00:00 -0600
 categories: [Career]
