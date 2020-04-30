@@ -1,7 +1,7 @@
 ---
 title: Why start blogging now?
 author: Joe Fecht
-date: 2020-04-27 00:00:00 -0600
+date: 2020-04-30 00:00:00 -0600
 categories: [Career]
 tags: [career]
 toc: false
