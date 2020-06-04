@@ -192,8 +192,6 @@ In the parameters specify "App" as the tag name.
 
 ![step-3-4]({{ "/assets/img/posts/2020-06-04/step-3-4-policy-parameters.png" | relative_url }})
 
-![Storage Provider ResourceTypes]({{ "/assets/img/posts/2020-04-25/step-3-2-leveraging-strongtype-for-parameters.png" | relative_url }})
-
 One thing we have not covered is Remediation steps.  Since we are asking Azure Policy to make changes to existing resources, we need some mechanism to make these changes.  By selecting "Create a remediation task" it will create a background process that updates the resources as defined in the policy.  In this case, we are assigning tags to the resources based on the values defined at the resource group level.  
 
 We are going to check the box to "Create a remediation task".  You may also notice it will create a managed identity and ask you for a location.  The location we select will not have any impact on the functionality of the remediation task.  It is an option so you can keep the managed identity in the same region as your other resources.  I'm going to leave the default of "East Us". 
