@@ -131,11 +131,11 @@ If you need to see how to create and assign the policy definition please review 
 
 We know have our policy definition created and are assigning it to our subscription.  You can see in the parameters that it is asking us to specify the tags that we are auditing for.  Remember, the tag names are case insensitive, we are using camel case to make it easier to read.  
 
-![step-1-1]({{ "/assets/img/posts/2020-06-04/images/step-1-1-assignment-parameters.png" | relative_url }})
+![step-1-1]({{ "/assets/img/posts/2020-06-04/step-1-1-assignment-parameters.png" | relative_url }})
 
 After we let that policy process we can see we have a lot of work on our hands.  While it is not the result that we had hoped for it, it does provide guidance on our next steps.
 
-![step-1-2]({{ "/assets/img/posts/2020-06-04/images/step-1-2-policy-results.png" | relative_url }})
+![step-1-2]({{ "/assets/img/posts/2020-06-04/step-1-2-policy-results.png" | relative_url }})
 
 ### Step 2 - Create a policy to prohibit resources from being created without the Env, Owner, and App tags defined.  
 
@@ -147,7 +147,7 @@ Since we are only making small changes to existing audit policy definition, ther
 
 1. We locate the existing policy definition that we used in the first step.  Along the top, you can see "Duplicate Definition".  
 
-![step-2-1]({{ "/assets/img/posts/2020-06-04/images/step-2-1-duplicate-definition.png" | relative_url }})
+![step-2-1]({{ "/assets/img/posts/2020-06-04/step-2-1-duplicate-definition.png" | relative_url }})
 
 2. This opens a new definition that has the same information as the original definition.  We will need to apply it to the correct location.   Since we are going to have it apply to the same resources we can select the same subscription from the list.
 
@@ -164,11 +164,11 @@ Since we are only making small changes to existing audit policy definition, ther
 
 4. We are also going to remove the "tagName4" from the parameters as well as if block in the policy rule.  Putting this all together it looks like this below. 
 
-![step-2-2]({{ "/assets/img/posts/2020-06-04/images/step-2-2-duplicate-definition.gif" | relative_url }})
+![step-2-2]({{ "/assets/img/posts/2020-06-04/step-2-2-duplicate-definition.gif" | relative_url }})
 
 5. Now we have a policy definition with the "deny" effect and updated parameters.  We will assign it the same way we did for the first step.  This time we only define "Env", "TechContact", and "App" in the parameters. 
 
-![step-2-3]({{ "/assets/img/posts/2020-06-04/images/step-2-3-assignment-parameters.png" | relative_url }})
+![step-2-3]({{ "/assets/img/posts/2020-06-04/step-2-3-assignment-parameters.png" | relative_url }})
 
 ### Step 3 - Applying tags from a resource group
 
@@ -176,32 +176,34 @@ Now we have a policy to audit our resources to ensure they are tagged properly. 
 
 Since this should be deployed on a case by case basis, we are going to set the scope to the resource group "Acct-rg".  Before we deploy this policy, let's look at the existing tags applied to the resources.  On resource group we can see the "App" and "Env" tags are set correctly.  Of the existing resources, only the "Acct-vnet" has any tags assigned.  Unfortunately, the tags currently assigned to that vnet are don't provide any real value.  
 
-![step-3-1]({{ "/assets/img/posts/2020-06-04/images/step-3-1-existing-tags.png" | relative_url }})
+![step-3-1]({{ "/assets/img/posts/2020-06-04/step-3-1-existing-tags.png" | relative_url }})
 
 Microsoft has already created a policy definition for us that will inherit a tag from the resource group.  It is called "Inherit a tag from the resource group if it is missing".  This will apply a tag if it is not present.  However, if that tag already exists it will not overwrite it. In our example, this means that existing tags on the "Acct-vnet" should not be modified. 
 
-![step-3-2]({{ "/assets/img/posts/2020-06-04/images/step-3-2-inherit-policy-definition.png" | relative_url }})
+![step-3-2]({{ "/assets/img/posts/2020-06-04/step-3-2-inherit-policy-definition.png" | relative_url }})
 
 We are going to assign this policy specifically the the "Acct-rg" by defining the scope.  In previous examples, we have set the scope to the subscription.  In this example, we are going to set it to a specific resource group.  
 
-![step-3-3]({{ "/assets/img/posts/2020-06-04/images/step-3-3-policy-scope.png" | relative_url }})
+![step-3-3]({{ "/assets/img/posts/2020-06-04/step-3-3-policy-scope.png" | relative_url }})
 
 We need to update the assignment name to reflect which tag we are having the clients inherit.  In this case we are going to use inheritance to apply the "App" tag.  We set the name to "Inherit the App tag from the Acct-rg resource group". 
 
 In the parameters specify "App" as the tag name. 
 
-![step-3-4]({{ "/assets/img/posts/2020-06-04/images/step-3-4-policy-parameters.png" | relative_url }})
+![step-3-4]({{ "/assets/img/posts/2020-06-04/step-3-4-policy-parameters.png" | relative_url }})
+
+![Storage Provider ResourceTypes]({{ "/assets/img/posts/2020-04-25/step-3-2-leveraging-strongtype-for-parameters.png" | relative_url }})
 
 One thing we have not covered is Remediation steps.  Since we are asking Azure Policy to make changes to existing resources, we need some mechanism to make these changes.  By selecting "Create a remediation task" it will create a background process that updates the resources as defined in the policy.  In this case, we are assigning tags to the resources based on the values defined at the resource group level.  
 
 We are going to check the box to "Create a remediation task".  You may also notice it will create a managed identity and ask you for a location.  The location we select will not have any impact on the functionality of the remediation task.  It is an option so you can keep the managed identity in the same region as your other resources.  I'm going to leave the default of "East Us". 
 
-![step-3-5]({{ "/assets/img/posts/2020-06-04/images/step-3-5-policy-remediation.png" | relative_url }})
+![step-3-5]({{ "/assets/img/posts/2020-06-04/step-3-5-policy-remediation.png" | relative_url }})
 
 We will create this assignment and then repeat the same steps for the "Env" tag.  We will be naming that assignment "Inherit the Env tag from the Acct-rg resource group". 
 
 After a while, we can review the Acct-rg and see that all of the resources have inherited the values of the App and Env tags from the resource group.  As expected, we notice that the tag values for "Acct-vnet" have not changed.  
 
-![step-3-6]({{ "/assets/img/posts/2020-06-04/images/step-3-6-updated-tags.png" | relative_url }})
+![step-3-6]({{ "/assets/img/posts/2020-06-04/step-3-6-updated-tags.png" | relative_url }})
 
 Hopefully, this has helped explain a few ways that you can manage tags in Azure.  Check back soon for a follow-up post where we show some more examples of ways we can leverage Azure Policy to manage resource tags.  
